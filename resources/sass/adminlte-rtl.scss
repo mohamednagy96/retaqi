@@ -1,0 +1,45 @@
+@import '../../node_modules/bootstrap3/dist/css/bootstrap.css';
+@import '../../node_modules/font-awesome/css/font-awesome.min.css';
+@import '../../node_modules/admin-lte/bower_components/Ionicons/css/ionicons.min.css';
+@import '../../node_modules/select2/dist/css/select2.min.css';
+@import '../../node_modules/adminlte-rtl/dist/css/AdminLTE.min.css';
+@import '../../node_modules/adminlte-rtl/dist/css/skins/_all-skins.min.css';
+
+@font-face {
+    font-family: "tajwal";
+    src: url(./fonts/Tajawal-Medium.ttf);
+}
+
+body, h3{
+    font-family: "tajwal",sans-serif;;
+}
+
+.form-group > label {
+    text-align: right;
+    text-transform: capitalize;
+}
+
+table th{
+    text-align: right;
+}
+
+label.error{
+    color: #f00;
+}
+
+
+@media (min-width: 992px){
+    .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+        float: right;
+    }
+}
+
+.select2-results__group, .select2-selection, .select2-results__options, .select2-search__field{
+    text-align: right;
+    direction: rtl;
+}
+
+.select2-selection__arrow{
+    right: unset;
+    left: 3px;
+}

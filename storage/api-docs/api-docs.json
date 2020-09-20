@@ -1,0 +1,419 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Ertaqi W Ratel API",
+        "version": "0.1"
+    },
+    "servers": [
+        {
+            "url": "/api"
+        }
+    ],
+    "paths": {
+        "/cities": {
+            "get": {
+                "tags": [
+                    "cities"
+                ],
+                "summary": "Get list of Cities",
+                "description": "Returns list of cities",
+                "operationId": "getCitiesList",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/country/{id}/cities": {
+            "get": {
+                "tags": [
+                    "cities"
+                ],
+                "summary": "Get All Cities All Of Country",
+                "description": "Returns list of  All Cities In Country",
+                "operationId": "getAllCitiesOfCountry",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of country",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "Internal Server error"
+                    },
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/countries": {
+            "get": {
+                "tags": [
+                    "public apis"
+                ],
+                "summary": "Get list of countries",
+                "description": "Returns list of countries",
+                "operationId": "getCountriesList",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/days": {
+            "get": {
+                "tags": [
+                    "general"
+                ],
+                "summary": "Get list of days",
+                "description": "Returns list of week days",
+                "operationId": "App\\Http\\Controllers\\Api\\GeneralController::days",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/governorates": {
+            "get": {
+                "tags": [
+                    "general"
+                ],
+                "summary": "Get list of governorates",
+                "description": "Returns list of governorates",
+                "operationId": "App\\Http\\Controllers\\Api\\GeneralController::governorates",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/groups": {
+            "get": {
+                "tags": [
+                    "general"
+                ],
+                "summary": "Get list of groups",
+                "description": "Returns list of groups",
+                "operationId": "App\\Http\\Controllers\\Api\\GeneralController::groups",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/day/{id}/teachers": {
+            "get": {
+                "tags": [
+                    "general"
+                ],
+                "summary": "Get All teachers All Of day",
+                "description": "Returns list of  All teachers  In that  day",
+                "operationId": "get All teachers Of day",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of day",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "Internal Server error"
+                    },
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/approvedTeachers": {
+            "get": {
+                "tags": [
+                    "general"
+                ],
+                "summary": "Get list of teachers approved",
+                "description": "Returns list of teachers",
+                "operationId": "App\\Http\\Controllers\\Api\\GeneralController::approvedTeachers",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/student/signUp": {
+            "post": {
+                "tags": [
+                    "students"
+                ],
+                "summary": "signup new student",
+                "description": "Returns student data and token",
+                "operationId": "signupStudent",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StudentSignUp"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/student/signIn": {
+            "post": {
+                "tags": [
+                    "students"
+                ],
+                "summary": "login student",
+                "description": "Returns student data and token",
+                "operationId": "signInStudent",
+                "requestBody": {
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/student/signIn": {
+            "post": {
+                "tags": [
+                    "students"
+                ],
+                "summary": "login student",
+                "description": "Returns student data and token",
+                "operationId": "signInStudent",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StudentSignIn"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "StudentSignIn": {
+                "title": " student sign up request",
+                "description": "Some simple request signIn student",
+                "properties": {
+                    "email": {
+                        "title": "email",
+                        "description": "email",
+                        "type": "string",
+                        "format": "string",
+                        "example": "admin@test.com"
+                    },
+                    "password": {
+                        "title": "password",
+                        "description": "select password",
+                        "type": "string",
+                        "format": "string",
+                        "example": 12345678
+                    }
+                },
+                "type": "object"
+            },
+            "StudentSignUp": {
+                "title": " Student SignIN request",
+                "description": "Some simple request signup student",
+                "properties": {
+                    "name": {
+                        "title": "Name",
+                        "description": "Some text field",
+                        "type": "string",
+                        "format": "string",
+                        "example": "Ahmed Mohamed"
+                    },
+                    "email": {
+                        "title": "email",
+                        "description": "email",
+                        "type": "string",
+                        "format": "string",
+                        "example": "admin@test.com"
+                    },
+                    "date_of_birth": {
+                        "title": "date_of_birth",
+                        "description": "date of birth",
+                        "type": "string",
+                        "format": "date",
+                        "example": "2017-06-07 09:39:31"
+                    },
+                    "mobile": {
+                        "title": "mobile",
+                        "description": "mobile",
+                        "type": "integer",
+                        "format": "integer",
+                        "example": "0112345678"
+                    },
+                    "gender": {
+                        "title": "gender",
+                        "description": "select gender (F,M)",
+                        "type": "string",
+                        "format": "string",
+                        "example": "F"
+                    },
+                    "avaliable_time": {
+                        "title": "avaliable_time",
+                        "description": "enter your available time",
+                        "type": "string",
+                        "format": "string",
+                        "example": "09:39:31"
+                    },
+                    "governorate_id": {
+                        "title": "governorate_id",
+                        "description": "select governorate id",
+                        "type": "integer",
+                        "format": "integer",
+                        "example": 1
+                    },
+                    "group_id": {
+                        "title": "group_id",
+                        "description": "select group id",
+                        "type": "integer",
+                        "format": "integer",
+                        "example": 1
+                    },
+                    "day_id": {
+                        "title": "day_id",
+                        "description": "select day id",
+                        "type": "integer",
+                        "format": "integer",
+                        "example": 1
+                    },
+                    "teacher_id": {
+                        "title": "teacher_id",
+                        "description": "select teacher id",
+                        "type": "integer",
+                        "format": "integer",
+                        "example": 1
+                    },
+                    "password": {
+                        "title": "password",
+                        "description": "select password",
+                        "type": "string",
+                        "format": "string",
+                        "example": 12345678
+                    },
+                    "c_password": {
+                        "title": "c_password",
+                        "description": "confirm password",
+                        "type": "string",
+                        "format": "string",
+                        "example": 12345678
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "X-APP-ID": {
+                "type": "apiKey",
+                "name": "X-APP-ID",
+                "in": "header"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "general",
+            "description": "API Endpoints of general Apis"
+        }
+    ]
+}
